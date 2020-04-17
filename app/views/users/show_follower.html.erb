@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>フォロワー</h1>
+    <h3>投稿内容をみてみよう</h3>
+    <% @user.followers.each do |user| %>
+        <div class="name-container">
+            <%= link_to user.name, user_path(user) %>
+        </div>
+    <% end %>
+</div> 
+

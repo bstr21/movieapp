@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>映画投稿一覧</h1>
+    <h3>みんなのおすすめをチェックしよう！</h3>
+    <div class="films-container">
+        <%= form_for @film do |f| %>
+            <div class="field">
+                <%= f.label :タイトル %>
+                <br>
+                <%= f.text_field :title,size: 140 %>
+                <br>
+                <%= f.label :リリース %>
+                <br>
+                <%= f.number_field :released_year,size: 140 %>
+                <br>
+                <%= f.label :主演 %>
+                <br>
+                <%= f.text_field :actor,size: 140 %>
+                <br>
+                <%= f.label :レビュー %>
+                <br>
+                <%= f.text_field :body,size: 140 %>
+                <br>
+                <%= f.label :画像を選択 %>
+                <br>
+                <%= f.file_field :image %>
+                <br>
+                <br>
+                <%= image_tag @film.image_url %>
+            </div>
+            <%= f.submit "編集する", class: "btn btn-primary" %>
+            <br>
+        <% end %>
+    </div>
+</div>

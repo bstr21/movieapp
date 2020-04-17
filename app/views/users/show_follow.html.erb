@@ -1,0 +1,10 @@
+
+<div class="container">
+  <h1>フォロー中</h1>
+  <h3>最新の投稿をチェックしよう！</h3>
+  <% @user.followings.each do |user| %>
+    <div class="name-container">
+      <%= link_to user.name, user_path(user) %>
+    </div>
+  <% end %>
+</div> 

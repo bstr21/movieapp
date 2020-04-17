@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>AmazonPrimeページ</h1>
+  <a href="https://www.amazon.co.jp/" class="btn btn-outline-primary">みてみる！</a>
+  <div class="card-columns">
+    <% @services.films.each do |t| %>
+      <div class="card">
+        <%= image_tag t.image_url, :size =>'120x180', class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= t.title %></h5>
+          <h8 class="card-subtitle"><%= t.service.name %></h5>
+          <p><span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %></p>
+          <%= link_to">>", film_path(t.id), class: "card-link" %>
+        </div>
+        <div class="card-footer text-right">
+          <%= link_to(t.user.name, user_path(t.user.id), class: "link" ) %>
+        </div>
+      </div>
+    <% end %>
+</div>
+</div> 

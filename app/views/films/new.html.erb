@@ -1,0 +1,35 @@
+<div class="container">
+   <h1>映画投稿ページ</h1>
+   <h3>映画をシェアしよう！</h3>
+   <%= form_for(@film, :url => { controller:'films', action:'create'})do |f| %>
+      <div class="field">
+         <%= f.label :タイトル必ず記入 %>
+         <br>
+         <%= f.text_field :title,size: 50 %>
+         <br>
+         <%= f.label :リリース %>
+         <br>
+         <%= f.number_field :released_year,size: 50 %>
+         <br>
+         <%= f.label :主演 %>
+         <br>
+         <%= f.text_field :actor,size: 50 %>
+         <br>
+         <%= f.label :レビュー %>
+         <br>
+         <%= f.text_area :body,size: "140x5" %>
+         <br>
+         <%= f.label :画像を選択 %>
+         <br>
+         <%= f.file_field :image %>
+         <br>
+         <br>
+         <%= f.label :サービスを選択 %>
+         <br>
+         <%= f.select :service_id, [['Netflix', 1], ['Amazon Prime', 2], ['その他', 3]] %>
+         <br>
+      </div>
+      <%= f.submit "投稿する", class: "btn btn-primary" %>
+      <br>
+   <% end %>
+</div>

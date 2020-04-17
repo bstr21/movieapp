@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>マイページ</h1>
+  <h3>あとで見るリスト</h3>
+  <div class="user-status">
+    <% if @user.image.present? %>
+      <%= image_tag @user.image_url, :size =>'500x300', class: "img_fluid rounded-circle" %>
+    <% end %>
+    <br><br><br>
+    <h5><%= @user.name %></h5>
+    <%= render 'stats' %>
+    <%= render 'follow_form' %>
+    <% if @user.id == current_user.id %>
+      <p><%= @user.email %></p>
+    <% end %>
+    <%= @user.profile %></p>
+    <% if @user.id == current_user.id %>
+      <%= link_to "ユーザ情報を編集する", edit_user_registration_path, class: "btn btn-warning" %>
+      <br>
+      <%= link_to '過去の投稿へ！', user_path, class: "btn btn-outline-warning" %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <div class="card-columns">
+    <% @user.liked_films.each do |t| %>
+      <div class="card">
+        <%= image_tag t.image_url, :size =>'120x180', class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= t.title %></h5>
+          <h8 class="card-subtitle"><%= t.service.name %></h5>
+          <p><span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %></p>
+          <%= link_to">>", film_path(t.id), class: "card-link" %>
+        </div>
+        <div class="card-footer text-right">
+          <%= link_to(t.user.name, user_path(t.user.id), class: "link" ) %> 
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> 
