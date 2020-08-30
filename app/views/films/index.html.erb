@@ -6,7 +6,7 @@
       <div class="card">
         <%= image_tag t.image_url, :size =>'120x180', class: "card-img-top" %>
         <div class="card-body">
-          <h5 class="card-title"><%= t.title %></h5>
+          <h5 class="card-title"><%= link_to t.title, film_path(t.id) %></h5>
           <h8 class="card-subtitle"><%= t.service.name %></h5>
           <p><span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %></p>
           <%= link_to">>", film_path(t.id), class: "card-link" %>
@@ -18,3 +18,5 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to "ほくと", new_film_path %>
