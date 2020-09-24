@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>マイページ</h1>
+  <% if @user.id == current_user.id %>
+    <h1>Your Own Page</h1>
+  <% else %>
+    <h1><%= @user.name %>'s Page</h1>
+  <% end %>
   <h3>過去の投稿を確認しよう</h3>
   <div class="user-status">
     <% if @user.image.present? %>

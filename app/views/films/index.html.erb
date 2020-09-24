@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>映画投稿一覧</h1>
+  <h1>Come Across Wonderful Movies </h1>
   <h3>みんなのおすすめをチェックしよう！</h3>
   <div class="card-columns">
     <% @films.each do |t| %>
@@ -8,7 +8,18 @@
         <div class="card-body">
           <h5 class="card-title"><%= link_to t.title, film_path(t.id) %></h5>
           <h8 class="card-subtitle"><%= t.service.name %></h5>
-          <p><span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %></p>
+          <br>
+          <% if current_user.already_liked?(t) %>
+            <%= link_to film_like_path(id: t.id, film_id: t.id), method: :delete do %>
+              <span class="fa fa-heart like-btn-unlike"></span>
+            <% end %>
+          <% else %>
+            <%= link_to film_likes_path(id: t.id, film_id: t.id), method: :post do %>
+              <span class="fa fa-heart like-btn"></span>
+            <% end %>
+          <% end %> 
+          <%= t.likes.count %>
+          <br>
           <%= link_to">>", film_path(t.id), class: "card-link" %>
         </div>
         <div class="card-footer text-right">
