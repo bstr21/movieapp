@@ -8,7 +8,18 @@
         <div class="card-body">
           <h5 class="card-title"><%= t.title %></h5>
           <h8 class="card-subtitle"><%= t.service.name %></h5>
-          <p><span class="fa fa-heart like-btn-unlike"></span><%= t.liked_users.count %></p>
+          <br>
+          <% if current_user.already_liked?(t) %>
+            <%= link_to film_like_path(id: t.id, film_id: t.id), method: :delete do %>
+              <span class="fa fa-heart like-btn-unlike"></span>
+            <% end %>
+          <% else %>
+            <%= link_to film_likes_path(id: t.id, film_id: t.id), method: :post do %>
+              <span class="fa fa-heart like-btn"></span>
+            <% end %>
+          <% end %> 
+          <%= t.likes.count %>
+          <br>
           <%= link_to">>", film_path(t.id), class: "card-link" %>
         </div>
         <div class="card-footer text-right">
