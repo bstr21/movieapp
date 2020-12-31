@@ -7,6 +7,7 @@
         <% end %>
         <br><br><br>
         <h5>登録者数：<%= @users.count %>人</h5>
+        <h5>全投稿数：<%= @films.count %>件</h5>
         <%= render 'stats' %>
         <%= render 'follow_form' %>
         <% if @user.id == current_user.id %>
