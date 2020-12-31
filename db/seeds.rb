@@ -11,7 +11,7 @@ Service.create(name: 'Netflix')
 Service.create(name: 'AmazonPrime')
 Service.create(name: 'other')
 User.create!(name:  "管理者",
-             email: "b.s.0130@i.softbank.jp",
+             email: "satoru.bstr@gmail.com",
              password:  "satoru0195BABA",
              password_confirmation: "satoru0195BABA",
              admin: true)
