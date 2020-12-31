@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :if_not_admin, only: [:index]
+  
   def show
     @films = Film.all.order(created_at: "DESC")
     @user = User.find(params[:id])
@@ -15,6 +17,10 @@ class UsersController < ApplicationController
     redirect_to("/")
   end
 
+  def index
+    @users = User.all
+    @user = User.find_by(admin: true)
+  end
 
 
   def following
@@ -27,5 +33,10 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follower'
+  end
+
+  private
+  def if_not_admin
+      redirect_to root_path unless current_user.admin?
   end
 end

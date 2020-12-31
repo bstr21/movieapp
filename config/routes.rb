@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :films do
     resources :likes, only: [:create, :destroy]
+    namespace :admin do
+      resources :films
+    end
   end
 
   resources :users do

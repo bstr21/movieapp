@@ -18,6 +18,9 @@
       <br>
       <%= link_to '過去の投稿へ！', user_path, class: "btn btn-outline-warning" %>
     <% end %>
+    <% if current_user.admin? %>
+      <%= link_to '全てのユーザー', users_path, class: "btn btn-warning" %>
+    <% end %>
   </div>
   <br>
   <br>

@@ -1,0 +1,10 @@
+<% if current_user.already_liked?(film) %>
+    <%= link_to film_like_path(film, film.likes), method: :delete, remote: true do %>
+        <span class="fa fa-heart like-btn-unlike"></span>
+    <% end %>
+<% else %>
+    <%= link_to film_likes_path(film), method: :post, remote: true do %>
+        <span class="fa fa-heart like-btn"></span>
+    <% end %>
+<% end %> 
+<%= film.likes.count %>

@@ -63,3 +63,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
+
+gem 'jquery-rails'
+
+gem 'gon'

@@ -22,6 +22,9 @@
       <br>
       <%= link_to 'あとで見るへ！', {controller: :users, action: :show_list}, class: "btn btn-outline-warning" %>
     <% end %>
+    <% if current_user.admin? %>
+      <%= link_to '全てのユーザー', users_path, class: "btn btn-warning" %>
+    <% end %>
   </div>
   <br>
   <br>

@@ -12,16 +12,9 @@
         <p>　投稿者：<%= link_to(@film.user.name, user_path(@film.user.id), class: "link" ) %></p>
       </div>
     <% end %>
-    <% if current_user.already_liked?(@film) %>
-      <%= link_to film_like_path(@film), method: :delete do %>
-        <span class="fa fa-heart like-btn-unlike"></span>
-      <% end %>
-    <% else %>
-      <%= link_to film_likes_path(@film), method: :post do %>
-        <span class="fa fa-heart like-btn"></span>
-      <% end %>
-    <% end %> 
-    <%= @film.likes.count %>
+    <div  id="like-<%= @film.id %>">
+      <%= render 'likes/like', { film: @film} %>
+    </div>
     <% if false %>
       <p>いいねしたユーザー</p>
       <% @film.liked_users.each do |user| %>
