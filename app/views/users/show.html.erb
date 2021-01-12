@@ -8,6 +8,8 @@
   <div class="user-status">
     <% if @user.image.present? %>
       <%= image_tag @user.image_url, :size =>'150x150', class: "img_fluid rounded-circle" %>
+    <% else %>
+      <%= image_tag 'man.jpg', :size =>'150x150', class: "img_fluid rounded-circle" %>
     <% end %>
     <br><br><br>
     <h5><%= @user.name %></h5>
