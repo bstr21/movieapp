@@ -5,18 +5,6 @@
     <a href="#photo1" data-toggle="modal">
       <%= image_tag @film.image_url, :size =>'500x300', class: "float-md-left mr-md-4" %>
     </a>
-    <dic class="modal fade" id="photo1" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centerd">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button class="close" data-dismiss="modal"><span>&time;</span></button>
-            <h6 class="modal-title"><%= @film.title %></h6>
-            <%= image_tag @film.image_url, class: "img-fluid mt-2" %>
-          </div>
-        <div>
-      </div>
-    </div>
-    <%= image_tag @film.image_url, :size =>'500x300', class: "float-md-left mr-md-4" %>
     <h3 class:"mt-4 mt-md-0"><%= @film.title %></h3>
     <p>　　主演：<%= @film.actor %></p>
     <p>　　公開：<%= @film.released_year %>年</p>
@@ -46,4 +34,15 @@
   </div>
   <h5 class="mt-4"><レビュー></h3>
   <p><%= @film.body %></p>
+</div>
+<div class="modal fade" id="photo1" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centerd">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h6 class="modal-title"><%= @film.title %></h6>
+        <%= image_tag @film.image_url, class: "img-fluid mt-2" %>
+      </div>
+    <div>
+  </div>
 </div>
